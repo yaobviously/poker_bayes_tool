@@ -18,7 +18,7 @@ def main():
 
     st.title("Poker Belief Updater")
 
-    # Create a sidebar column for inputs
+    # creating a sidebar and its sliders
     with st.sidebar:
         st.subheader("Input Parameters")
         hands = st.slider('Sample of Hands', min_value=1, max_value=100, value=15, help="Number of hands")
@@ -26,10 +26,10 @@ def main():
         value_perc = st.slider('Value Hands', min_value=0.01, max_value=0.3, step=0.01, value=0.15, help="Percentage of value hands")
         prior = st.selectbox('Prior', ['beta_1', 'beta_2', 'beta_3', 'uniform'], help="Prior distribution")
 
-    # Call the 'update_poker_beliefs' function and get the plot
+    # calling the function 
     plot = update_poker_beliefs(hands, raises, value_perc, prior)
 
-    # Display the plot using Streamlit
+    # display plot
     st.pyplot(plot)
 
 

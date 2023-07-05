@@ -53,7 +53,7 @@ def update_poker_beliefs(hands: int, raises: int, value_perc: float, prior: str)
     unnormed = bluff_df['total_prob'] * prior
     posterior = unnormed / unnormed.sum()
     
-    # Create the plot object
+    # creating the plot object
     fig, ax = plt.subplots(figsize=(5, 3))
     plt.title(f"Update After {raises} xr in {hands} hands")
     plt.plot(possible_bluff_freq, posterior, label="posterior")
@@ -61,5 +61,5 @@ def update_poker_beliefs(hands: int, raises: int, value_perc: float, prior: str)
     plt.xlabel("Opponent's Bluffing Frequency")
     plt.legend()
 
-    # Return the plot object
+    # returning it for streamlit
     return fig
